@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đo Size Nhẫn 💍</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ffd6e0, #fff0f5);
+    text-align: center;
+    padding: 20px;
+}
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+h1 { color: #ff4d88; }
+.step {
+    margin: 15px 0;
+    padding: 10px;
+    background: #fff5f8;
+    border-radius: 10px;
+}
+input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    width: 80%;
+}
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #ff66a3;
+    color: white;
+    cursor: pointer;
+}
+.sticker {
+    font-size: 30px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>💍 Đo Size Nhẫn Dễ Thương 💍</h1>
+
+    <div class="sticker">🐱🐱🐐🐐</div>
+
+    <div class="step">
+        <b>Bước 1:</b> Chuẩn bị một sợi dây hoặc giấy nhỏ
+    </div>
+
+    <div class="step">
+        <b>Bước 2:</b> Quấn quanh ngón tay muốn đeo nhẫn
+    </div>
+
+    <div class="step">
+        <b>Bước 3:</b> Đánh dấu điểm giao nhau
+    </div>
+
+    <div class="step">
+        <b>Bước 4:</b> Dùng thước đo chiều dài (đơn vị cm)
+    </div>
+
+    <div class="step">
+        <b>Bước 5:</b> Nhập kết quả bên dưới 💖
+    </div>
+
+    <input type="text" id="sizeInput" placeholder="Ví dụ: 5cm">
+    <br>
+    <button onclick="showResult()">Xác nhận</button>
+
+    <p id="result"></p>
+
+    <div class="sticker">🐐🐱💖🐐🐱</div>
+</div>
+
+<script>
+function showResult() {
+    var size = document.getElementById("sizeInput").value;
+    document.getElementById("result").innerText = "Size bạn nhập là: " + size + " 💍";
+}
+</script>
+
+</body>
+</html>
