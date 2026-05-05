@@ -3,33 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Đo Size Nhẫn 💍</title>
+<title>Hướng dẫn đo size nhẫn 💍</title>
 <style>
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #ffd6e0, #fff0f5);
+    font-family: 'Segoe UI', cursive;
+    background: linear-gradient(to right, #f5d0dc, #f9e4ea);
     text-align: center;
     padding: 20px;
+    overflow-x: hidden;
 }
 .container {
     max-width: 600px;
     margin: auto;
-    background: white;
+    background: #fffafa;
     padding: 20px;
     border-radius: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
-h1 { color: #ff4d88; }
+h1 {
+    color: #d97b93;
+    font-family: 'Comic Sans MS', cursive;
+}
+.highlight {
+    color: #ff4d88;
+    font-weight: bold;
+}
 .step {
-    margin: 15px 0;
-    padding: 10px;
-    background: #fff5f8;
+    margin: 12px 0;
+    padding: 12px;
+    background: #fff0f4;
     border-radius: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.step:hover {
+    transform: scale(1.05);
+    background: #ffe4ec;
 }
 input {
     padding: 10px;
     border-radius: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     width: 80%;
 }
 button {
@@ -37,55 +51,122 @@ button {
     padding: 10px 20px;
     border: none;
     border-radius: 10px;
-    background: #ff66a3;
+    background: #e89ab0;
     color: white;
     cursor: pointer;
 }
+.note {
+    font-size: 14px;
+    margin-top: 10px;
+    color: #b35c74;
+    font-weight: bold;
+    font-family: 'Comic Sans MS', cursive;
+}
 .sticker {
-    font-size: 30px;
+    font-size: 26px;
+}
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 400px;
+    animation: shake 0.3s;
+}
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+.heart {
+    position: fixed;
+    color: #ff6b9a;
+    font-size: 20px;
+    animation: float 3s linear forwards;
+}
+@keyframes float {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-300px); opacity: 0; }
 }
 </style>
 </head>
 <body>
 
+<!-- Nhạc nền auto play (trick) -->
+<audio id="bgMusic" loop autoplay muted>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+</audio>
+
 <div class="container">
-    <h1>💍 Đo Size Nhẫn Dễ Thương 💍</h1>
+    <h1>Hướng dẫn cách đo size nhẫn cho người đáng iu 💖</h1>
 
-    <div class="sticker">🐱🐱🐐🐐</div>
+    <div class="sticker">🐱🐐🐱🐐🐱🐐</div>
 
-    <div class="step">
-        <b>Bước 1:</b> Chuẩn bị một sợi dây hoặc giấy nhỏ
-    </div>
+    <div class="step">Bước 1: <span class="highlight">Thư</span> kím cho anh một sợi hay hoặc giấy nhỏ</div>
+    <div class="step">Bước 2: Xong rùi em hãy quấn quanh ngón mà <span class="highlight">Thư</span> mún đeo</div>
+    <div class="step">Bước 3: Lấy bút đánh giấu điểm giao nhau em nhá</div>
+    <div class="step">Bước 4: Em trải sợi dây hoặc giấy ra rùi lấy thước đo</div>
+    <div class="step">Bước 5: Mời athu nhập kết quả đo được vào bên dưới ạaa</div>
 
-    <div class="step">
-        <b>Bước 2:</b> Quấn quanh ngón tay muốn đeo nhẫn
-    </div>
-
-    <div class="step">
-        <b>Bước 3:</b> Đánh dấu điểm giao nhau
-    </div>
-
-    <div class="step">
-        <b>Bước 4:</b> Dùng thước đo chiều dài (đơn vị cm)
-    </div>
-
-    <div class="step">
-        <b>Bước 5:</b> Nhập kết quả bên dưới 💖
-    </div>
-
-    <input type="text" id="sizeInput" placeholder="Ví dụ: 5cm">
+    <input type="text" id="sizeInput" placeholder="Ví dụ: 16.5mm">
     <br>
-    <button onclick="showResult()">Xác nhận</button>
+    <button onclick="openModal()">Xác nhận</button>
 
-    <p id="result"></p>
+    <div class="note">
+        Lưu ý! Lưu ý! Việc đo có thể gây khó khăn cho em nên mum có thể nhờ ai đó giúp em làm nhó và ghi kết quả bằng milimet cho bin nhoa ( đơn vị: mm ) là cái gạch nhỏ tí trên cây thước ấy ọ! Bin cảm ơn em ạ
+    </div>
 
     <div class="sticker">🐐🐱💖🐐🐱</div>
 </div>
 
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <p><b>Cảm ơn Thư đã bỏ chút thời gian ra để mà thực hiện bài khảo sát này :> Bin cảm ơn em nhé. Tui sẽ làm Thư hạnh phúc!</b></p>
+    <button onclick="closeModal()">Đóng</button>
+  </div>
+</div>
+
 <script>
-function showResult() {
-    var size = document.getElementById("sizeInput").value;
-    document.getElementById("result").innerText = "Size bạn nhập là: " + size + " 💍";
+let music = document.getElementById("bgMusic");
+
+// Trick: unmute khi user tương tác
+window.addEventListener("click", () => {
+    music.muted = false;
+    music.play();
+});
+
+function openModal() {
+    document.getElementById("modal").style.display = "flex";
+
+    // tim bay theo nhịp
+    let interval = setInterval(() => {
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerText = "💖";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.top = "80%";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 3000);
+    }, 300);
+
+    setTimeout(() => clearInterval(interval), 3000);
+
+    let value = document.getElementById("sizeInput").value;
+    window.location.href = `mailto:youremail@gmail.com?subject=Size nhẫn&body=Size đo được: ${value}`;
+}
+
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
 }
 </script>
 
